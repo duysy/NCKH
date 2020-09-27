@@ -1,0 +1,124 @@
+{%extends "main/head.html"%}
+
+{%block head_main%}
+{%load emmetroi%}
+ <section id="main-content">
+      <section class="wrapper"  >
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Trang chủ</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{%url 'index'%}">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Trang chủ</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="info-box blue-bg">
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <div class="count">{{soluong.somonhoc}}</div>
+              <div class="title">Môn Học</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+           <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="info-box blue-bg">
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <div class="count">{{soluong.sophong}}</div>
+              <div class="title">Phòng Học</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+          <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="info-box blue-bg">
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <div class="count">{{soluong.solop}}</div>
+              <div class="title">Số lớp</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="info-box brown-bg">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              <div class="count">{{soluong.sohocsinh}}</div>
+              <div class="title">Số Sinh Viên</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+
+        </div>
+        <!--/.row-->
+        <div class="row">
+
+          <div >
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2><i class="fa fa-flag-o red"></i><strong>Tổng quan</strong></h2>
+                <div class="panel-actions">
+                  <a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                  <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                  <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table bootstrap-datatable countries">
+                  <thead>
+                    <tr>
+
+                      <th>Tên Môn Học</th>
+                      <th>Có Mặt</th>
+                      <th>Tổng</th>
+                      <th>Performance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for i in tenmonhoc%}
+                    <tr>
+
+                      <td>{{i.Ten_mon_hoc}}</td>
+                      {%get_sl_mon_di user i.Ten_mon_hoc as soluong%}
+                      {%get_sl_mon_diall user i.Ten_mon_hoc as soluongall%}
+                      {%with soluongall1=soluongall.0.0 soluong1=soluong.0.0  %}
+                        {%tileindex soluongall1 soluong1 as tile%}
+                      <td>{{soluong1}}</td>
+                      <td>{{soluongall1}}</td>
+
+                      <td>
+                        <div class="progress thin">
+                          <div class="progress-bar progress-bar-danger" style="width: {{tile.1}}%" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" >
+                          </div>
+                          <div class="progress-bar progress-bar-warning" style="width: {{tile.0}}%" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" >
+                          </div>
+                        </div>
+                        <span>{{tile.1}}%</span>
+                      </td>
+                    </tr>
+                   {%endwith%}
+                  {%endfor%}
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+          <!--/col-->
+
+        </div>
+
+    <!--main content end-->
+  </section>
+  <!-- container section start -->
+{%endblock head_main%}

@@ -1,0 +1,70 @@
+{%extends "main/head.html"%}
+
+{%block head_main%}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-files-o"></i> Form Lịch Học</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{%url 'index'%}">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-files-o"></i>Form Lịch Học</li>
+            </ol>
+          </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Form Lịch Học
+              </header>
+              <div class="panel-body">
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="feedback_form" method="post" action="{%url 'form_phong_lop'%}">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">ID Môn Học <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control"  name="idmonhoc"  type="text" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Lớp</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="lop" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Tổng số học sinh</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="number" name="tongsohocsinh" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Khóa học bắt đầu</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="number" name="khoahoc" />
+                      </div>
+                    </div>
+                     <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="button" class="btn btn-danger">Cancel</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+</section>
+ {%endblock head_main%}

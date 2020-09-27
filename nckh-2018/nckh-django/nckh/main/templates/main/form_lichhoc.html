@@ -1,0 +1,115 @@
+{%extends "main/head.html"%}
+
+{%block head_main%}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-files-o"></i> Form Lịch Học</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{%url 'index'%}">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-files-o"></i>Form Lịch Học</li>
+            </ol>
+          </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Form Lịch Học
+              </header>
+              <div class="panel-body">
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="feedback_form" method="post" action="{%url 'form_lichhoc'%}">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">ID Môn Học <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control"  name="idmonhoc"  type="text" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="cemail" class="control-label col-lg-2">ID Giảng Viên <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="idgiangvien" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Tên Giảng Viên</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="tengiangvien" minlength="5" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Tên Môn Học</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="tenmonhoc" minlength="5"/>
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Số Tín Chỉ</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="number" name="sotinchi" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Thứ</label>
+                      <div class="col-lg-10">
+                        <select class="form-control m-bot15" name="thu">
+                          <option>THỨ HAI</option>
+                          <option>THỨ BA</option>
+                          <option>THỨ TƯ</option>
+                          <option>THỨ NĂM</option>
+                          <option>THỨ SÁU</option>
+                          <option>THỨ BẢY</option>
+                          <option>CHỦ NHẬT</option>
+
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Lớp</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="lop" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Giờ bắt đầu</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="time" name="giobatdau" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Giờ kết thúc</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="time" name="gioketthuc" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="curl" class="control-label col-lg-2">Phòng</label>
+                      <div class="col-lg-10">
+                        <input class="form-control "  type="text" name="phong" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+</section>
+ {%endblock head_main%}

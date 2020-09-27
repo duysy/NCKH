@@ -1,0 +1,41 @@
+{%extends "main/head.html"%}
+{%block head_main%}
+{% load emmetroi %}
+    <!--main content start-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+
+          <aside >
+
+              {%for i in table%}
+
+                <div class="dropdown show col-lg-3 col-md-2 col-sm-12 col-xs-3" style="margin-top: 50px;">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <nav style="width: 250px;font-size: 25px">{{i.Lop}}</nav>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% get_mon_hoc i.Lop user as lich %}
+                    {%for item in lich%}
+                    <a class="dropdown-item" href="{%url 'table_chon_chi_tiet' item.Lop item.Ten_mon_hoc item.ID_giang_vien%}"><nav style="font-size: 20px">{{item.Ten_mon_hoc}}</nav></a>
+                      {%endfor%}
+                  </div>
+
+                </div>
+                {%endfor%}
+
+
+
+
+
+
+
+         </aside>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+
+  {%endblock head_main%}
